@@ -1,7 +1,8 @@
 # Vaxport
 ### Autor: Prof. MSc. Sérgio Vieira - <sergio.vieira@ifce.edu.br>
 Vaxport é uma solução computacional idealizada para baixar e converter pdfs de passaportes vacinais em um único arquivo JSON bem estruturado.
-*Atenção*: este sistema é um protótipo, precisam ser realizados mais testes com diferentes passaportes vacinais.
+
+### *Atenção*: este sistema é um protótipo, precisam ser realizados mais testes com diferentes passaportes vacinais.
 ## Configurações Iniciais
 ### *Pré-requisitos*: Você precisa ter ativado o IMAP no GMAIL, cirado uma senha de aplicação e criado um marcado para filtrar as mensagens enviadas pelos alunos/servidores.
 * Ativando IMAP no GMAIL: https://support.google.com/mail/answer/7126229?hl=pt-BR
