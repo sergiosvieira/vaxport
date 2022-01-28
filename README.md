@@ -2,59 +2,86 @@
 ### Autor: Prof. MSc. Sérgio Vieira - <sergio.vieira@ifce.edu.br>
 Vaxport é uma solução computacional idealizada para baixar e converter pdfs de passaportes vacinais em um único arquivo JSON bem estruturado.
 ## Configurações Iniciais
-### *Pré-requisito*: Você precisa ter criado um marcado no GMAIL para filtrar as mensagens enviadas pelos alunos/servidores.
+### *Pré-requisitos*: Você precisa ter ativado o IMAP no GMAIL, cirado uma senha de aplicação e criado um marcado para filtrar as mensagens enviadas pelos alunos/servidores.
+* Ativando IMAP no GMAIL: https://support.google.com/mail/answer/7126229?hl=pt-BR
+* Criar uma nova senha de aplicação no GMAIL - https://support.google.com/accounts/answer/185833?hl=pt-BR
+* Criando marcadores e filtrando no GMAIL - https://support.google.com/mail/answer/6579?hl=pt-BR
 ---
-1. Especificar o nome do marcador no Gmail pré-configurado para receber os passaportes vacinais
+1. Especificar o nome do marcador no GMAIL
 ``` 
-Dentro do arquivo download-attachment.sh, procure o trecho --imap-folder=, depois do símbolo de igualdade coloque o nome do marcador (não precisa de aspas)
+Dentro do arquivo download-attachments.sh, procure o trecho folder=, 
+depois do símbolo de igualdade coloque o nome do marcador.
+(não precisa de aspas e nem espaços depois da igualdade)
 ```
 2. Especificar o email de onde serão baixados os PDFs
 ```
-Dentro do arquivo download-attachment.sh, procure o trecho --username, depois dele coloque um espaço e escreva o seu email 
+Dentro do arquivo download-attachments.sh, procure o trecho username=, 
+depois do símbolo de igualdade escreva o seu email.
+(não precisa de aspas e nem espaços depois da igualdade)
 ```
 3. Especificar a senha do seu email anteriormente configurado
-* Antes de configurar o comando abaixo, é necessário criar uma nova senha de aplicação no GMAIL
-* https://support.google.com/accounts/answer/185833?hl=pt-BR 
 ```
-Dentro do arquivo download-attachment.sh, procure o trecho --password, depois dele coloque um espaço e digite a senha de aplicativo gerada
+Dentro do arquivo download-attachments.sh, procure o trecho pass=, 
+depois do símbolo de igualdade coloque a senha de aplicativo gerada.
+(não precisa de aspas e nem espaços depois da igualdade)
 ```
 4. Especificar a pasta de destino, onde serão salvos os PDFs
 ```
-Dentro do arquivo download-attachment.sh, procure o trecho --output, depois dele coloque um espaço e digite o caminho da pasta de destino
+Dentro do arquivo download-attachments.sh, procure o trecho output=, 
+depois do símbolo de igualdade coloque o caminho da pasta de destino
+onde serão salvos os arquivos pdf.
+(não precisa de aspas e nem espaços depois da igualdade)
 ```
-5. Para que esta solução funcione é necessário ativar o IMAP no GMAIL
-* Ativando IMAP no GMAIL: https://support.google.com/mail/answer/7126229?hl=pt-BR 
-6. O Próximo passo é instalar os seguintes aplicativos
-* CYGWIN com os seguintes pacotes:
+* Ao final, você dever ter um comando, dentro do arquivo downloader-attachments.sh, parecido com o abaixo
+```bash
+#!/bin/bash
+# Author: Prof. MSc Sérgio Vieira <sergio.vieira@ifce.edu.br>
+
+folder=certificados
+username=email@ifce.edu.br
+pass=senha1234
+output=./pdf
+if [ ! -d $output ]; then
+    mkdir $output;
+else
+    rm -rf $output
+    mkdir $output
+fi
+../attachment-downloader/bin/attachment-downloader --filename-template="{{ message_id }}_{{ subject }}" --imap-folder=$folder --host imap.gmail.com --username $username --password $pass --output $output
+```
+5. O próximo passo é instalar os seguintes aplicativos
+* cygwin com os seguintes pacotes:
     - python3
     - git
-7. Depois de tudo instalado, abra o terminal do cygwin e digite:
+* Como instalar o cygwin e seus pacotes - https://gist.github.com/AllanNozomu/6b108324f9c72285adb2c77499cad4b8
+* Mais informações sobre o cygwin - https://www.youtube.com/watch?v=TFCCriN_MvU
+6. Depois de tudo instalado e configurado, abra o terminal do cygwin e digite:
 ```
 git clone https://github.com/sergiosvieira/vaxport.git
 ```
-8. Ainda dentro do terminal do cygwin digite:
+7. Ainda dentro do terminal do cygwin digite:
 ```
 git clone https://github.com/sergiosvieira/downloader-attachment.git
 cd downloader-attachment/
 python setup.py install
 cd ..
 ```
-9. Entre dentro da pasta vaxport através do seguinte comando:
+8. Entre dentro da pasta vaxport através do seguinte comando:
 ```
 cd vaxport
 ```
-10. Execute a aplicação
+9. Execute a aplicação
 ```
 sh start.sh
 ```
-11. Se tudo estiver configurado corretamente a aplicação fará:
+10. Se tudo estiver configurado corretamente a aplicação fará:
 * Baixar do GMAIL todos os pdfs dos passaportes vacinais
 * Renomear os pdfs
 * Converter os pdfs em texto
 * Remover os caracteres desnecessários
 * Mesclar todos os passaportes vacinais em um único arquivo texto (passaporte.txt)
 * Converter em JSON (passaporte.json)
-12. Exemplo de JSON criado
+11. Exemplo de JSON criado
 ```
 {
   "rows": [
