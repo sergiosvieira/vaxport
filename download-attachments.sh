@@ -1,9 +1,9 @@
 #!/bin/bash
 # Author: Prof. MSc Sérgio Vieira <sergio.vieira@ifce.edu.br>
 
-folder=certificados
-username=sergio.vieira@ifce.edu.br
-pass=zxzytvogdwxqbkck
+folder=
+username=
+pass=
 output=./pdf
 if [ ! -d $output ]; then
     mkdir $output;
