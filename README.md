@@ -61,8 +61,8 @@ git clone https://github.com/sergiosvieira/vaxport.git
 ```
 7. Ainda dentro do terminal do cygwin digite:
 ```
-git clone https://github.com/sergiosvieira/downloader-attachment.git
-cd downloader-attachment/
+git clone https://github.com/sergiosvieira/attachment-downloader.git
+cd attachment-downloader
 python setup.py install
 cd ..
 ```
@@ -74,13 +74,18 @@ cd vaxport
 ```
 sh start.sh
 ```
-10. Se tudo estiver configurado corretamente a aplicação fará:
-* Baixar do GMAIL todos os pdfs dos passaportes vacinais
-* Renomear os pdfs
-* Converter os pdfs em texto
-* Remover os caracteres desnecessários
-* Mesclar todos os passaportes vacinais em um único arquivo texto (passaporte.txt)
-* Converter em JSON (passaporte.json)
+10. Se tudo estiver configurado corretamente o sistema irá:
+```
+[+] Baixar do GMAIL todos os pdfs dos passaportes vacinais do marcador configurado
+{+] Renomear os pdfs
+[+] Converter os pdfs em texto
+[+] Remover os caracteres desnecessários dos textos convertidos
+[+] Mesclar todos os passaportes vacinais textuais em um único arquivo (passaporte.txt)
+    * As informações dentro de passaporte.txt não estão estruturadas
+[+] Converter em JSON o arquivo passapaorte.txt (passaporte.json)
+    * Depois deste passo as informações estarão semiestruturadas sendo possível
+      utilizá-las em uma gama de aplicações diferentes
+```
 11. Exemplo de JSON criado
 ```
 {
