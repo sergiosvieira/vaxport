@@ -79,7 +79,7 @@ sh start.sh
 10. Se tudo estiver configurado corretamente o sistema irá:
 ```
 [+] Baixar do GMAIL todos os pdfs dos passaportes vacinais do marcador configurado
-{+] Renomear os pdfs
+[+] Renomear os pdfs
 [+] Converter os pdfs em texto
 [+] Remover os caracteres desnecessários dos textos convertidos
 [+] Mesclar todos os passaportes vacinais textuais em um único arquivo (passaporte.txt)
