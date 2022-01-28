@@ -4,7 +4,7 @@ Vaxport é uma solução computacional idealizada para baixar e converter pdfs d
 
 ### *Atenção*: este sistema é um protótipo, precisam ser realizados mais testes com diferentes passaportes vacinais.
 ## Configurações Iniciais
-### *Pré-requisitos*: Você precisa ter ativado o IMAP no GMAIL, criado uma senha de aplicação e criado um marcado para filtrar as mensagens enviadas pelos alunos/servidores.
+### *Pré-requisitos*: Você precisa ter ativado o IMAP no GMAIL, criado uma senha de aplicação e criado um marcador para filtrar as mensagens enviadas pelos alunos/servidores.
 * Ativando IMAP no GMAIL: https://support.google.com/mail/answer/7126229?hl=pt-BR
 * Criar uma nova senha de aplicação no GMAIL - https://support.google.com/accounts/answer/185833?hl=pt-BR
 * Criando marcadores e filtrando no GMAIL - https://support.google.com/mail/answer/6579?hl=pt-BR
