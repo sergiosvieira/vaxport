@@ -84,7 +84,7 @@ sh start.sh
 [+] Remover os caracteres desnecessários dos textos convertidos
 [+] Mesclar todos os passaportes vacinais textuais em um único arquivo (passaporte.txt)
     * As informações dentro de passaporte.txt não estão estruturadas
-[+] Converter em JSON o arquivo passapaorte.txt (passaporte.json)
+[+] Converter em JSON o arquivo passaporte.txt (passaporte.json)
     * Depois deste passo as informações estarão semiestruturadas sendo possível
       utilizá-las em uma gama de aplicações diferentes
 ```
